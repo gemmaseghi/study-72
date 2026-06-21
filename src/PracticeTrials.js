@@ -7,8 +7,7 @@ const practiceTrials = [
     item: "scissors",
     image: "stimuli/practice_01.png",
     greyCell: "topLeft",
-    correctAnswer: ["topRight"],
-    maxSelections: 1
+    correctAnswer: "topRight",
   },
   {
     id: "practice_2",
@@ -18,8 +17,7 @@ const practiceTrials = [
     item: "key",
     image: "stimuli/practice_02.png",
     greyCell: "topLeft",
-    correctAnswer: ["bottomLeft"],
-    maxSelections: 1
+    correctAnswer: "bottomLeft",
   },
   {
     id: "practice_3",
@@ -29,8 +27,7 @@ const practiceTrials = [
     item: "ring",
     image: "stimuli/practice_03.png",
     greyCell: "topLeft",
-    correctAnswer: ["bottomLeft"],
-    maxSelections: 1
+    correctAnswer: "bottomLeft",
   },
   {
     id: "practice_4",
@@ -40,8 +37,17 @@ const practiceTrials = [
     item: "toothbrush",
     image: "stimuli/practice_04.png",
     greyCell: "topLeft",
-    correctAnswer: ["bottomRight"],
-    maxSelections: 1
+    correctAnswer: "bottomRight",
+  },
+  {
+    id: "practice_5",
+    phase: "practice",
+    condition: "practice",
+    utterance: "The socks",
+    item: "socks",
+    image: "stimuli/practice_04.png",
+    greyCell: "topLeft",
+    correctAnswer: "topRight",
   }
 ];
 
