@@ -30,7 +30,7 @@ export default {
       page: 0,
       pages: [
         {
-          title: "Consent form",
+          title: "Consent Form",
           text: `Thank you for your interest in our study. Please read the following information before deciding whether to participate. Your participation is entirely voluntary.
           <br><br>
           Your data will be stored under a randomly assigned participant ID and will therefore be fully anonymized. The data will be stored on a server at the University of Tübingen. 
