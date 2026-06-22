@@ -59,7 +59,7 @@ export default {
           <br><br>
           If the grey cell changes position between screens, this means that a different cell is occluded from the speaker's view.
           <br><br>
-          Apart from the hidden object, both grids contain the same objects. However, the position of the visible objects is shuffled across the two grids, so the speaker cannot use location words (e.g., "top left" or "bottom right") to refer to an object.`
+          Apart from the hidden object, your grids and the speaker's ones contain the same objects. However, the position of the visible objects is shuffled across them, so the speaker cannot use location words (e.g., "top left" or "bottom right") to refer to an object.`
         },
         {
           title: "Instructions",
