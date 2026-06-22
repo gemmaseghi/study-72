@@ -31,6 +31,18 @@ export default {
       pages: [
         {
           title: "Welcome",
+          text: `Thank you for your interest in our study. Please read the following information before deciding whether to participate. Your participation is entirely voluntary.
+          <br><br>
+          Your data will be stored under a randomly assigned participant ID and will therefore be fully anonymized. The data will be stored on a server at the University of Tübingen. 
+          <br><br>
+          All individuals with access to the data are required to maintain confidentiality. If the results of this study are published, they will be reported only in anonymized form, and it will not be possible to identify you from the published data.
+          <br><br>
+          You will receive £1.05 for your participation. Please note that compensation can only be provided if you complete the study. If you experience any technical issues, please contact us via Prolific.
+          <br><br>
+          By continuing to the next screen, you confirm that you have read this information and agree to participate in the study.`
+        },
+        {
+          title: "Welcome",
           text: `Welcome to the experiment! You will first read a set of instructions. The instructions are divided into three parts. Please move to the next screen to read the first part.`
         },
         {
