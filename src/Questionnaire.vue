@@ -47,7 +47,7 @@
     <div v-if="step === 3" class="question">
       <p>
         Did you suspect that the speaker could see what was in the grey cell?
-        Please explain why and give examples if possible.
+        Please explain why and give examples.
       </p>
 
       <textarea v-model="suspicionExplanation"></textarea>

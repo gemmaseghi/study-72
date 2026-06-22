@@ -37,11 +37,15 @@ export default {
           title: "Instructions",
           text: `In this experiment, you will play a game with another participant. You will play the role of the listener, while the other participant will play the role of the speaker. 
           <br><br>
-          On each trial, you will see a grid containing four objects and a description above it. The description is produced by the speaker to indicate one of the objects in the grid. You will only be presented the speaker's description in written form, you won't hear it spoken aloud.`
+          Each screen contains five grids, each with four objects and a description above it. At the start of each screen, only the leftmost grid will be visible. Select the object indicated by the description above the grid. Each correct selection will reveal the next grid to the right. After all five grids have been revealed, you will proceed to the next screen.
+          <br><br>
+          The description is produced by the speaker to indicate one of the objects in the grid. You will only be presented the speaker's description in written form, you won't hear it spoken aloud.`
         },
         {
           title: "Instructions",
-          text: `The speaker sees a slightly different version of the grid. Their grid contains only three objects because one cell is hidden by an occluder. In your grid, the speaker's occluded cell is shown as a grey cell. This means that the speaker cannot see the object in the grey cell. 
+          text: `The speaker sees a slightly different version of the grids. Their grids contain only three objects because one cell is hidden by an occluder. In your grid, the speaker's occluded cell is shown as a grey cell. This means that the speaker cannot see the object in the grey cell. 
+          <br><br>
+          If the grey cell changes position between screens, this means that a different cell is occluded from the speaker's view.
           <br><br>
           Apart from the hidden object, both grids contain the same objects. However, the position of the visible objects is shuffled across the two grids, so the speaker cannot use location words (e.g., "top left" or "bottom right") to refer to an object.`
         },

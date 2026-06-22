@@ -2,6 +2,8 @@ const practiceTrials = [
   {
     id: "practice_1",
     phase: "practice",
+    block_id: 0,
+    trial_in_block: 1,
     condition: "practice",
     utterance: "The scissors",
     item: "scissors",
@@ -12,6 +14,8 @@ const practiceTrials = [
   {
     id: "practice_2",
     phase: "practice",
+    block_id: 0,
+    trial_in_block: 2,
     condition: "practice",
     utterance: "The key",
     item: "key",
@@ -22,6 +26,8 @@ const practiceTrials = [
   {
     id: "practice_3",
     phase: "practice",
+    block_id: 0,
+    trial_in_block: 3,
     condition: "practice",
     utterance: "The ring",
     item: "ring",
@@ -32,6 +38,8 @@ const practiceTrials = [
   {
     id: "practice_4",
     phase: "practice",
+    block_id: 0,
+    trial_in_block: 4,
     condition: "practice",
     utterance: "The toothbrush",
     item: "toothbrush",
@@ -42,10 +50,12 @@ const practiceTrials = [
   {
     id: "practice_5",
     phase: "practice",
+    block_id: 0,
+    trial_in_block: 5,
     condition: "practice",
     utterance: "The socks",
     item: "socks",
-    image: "stimuli/practice_04.png",
+    image: "stimuli/practice_05.png",
     greyCell: "topLeft",
     correctAnswer: "topRight",
   }

@@ -4,11 +4,11 @@ const trials = [
     phase: "cg",
     block_id:1,
     trial_in_block:1,
-    condition: "filler2color",
-    utterance: "The red chair",
-    item: "red chair",
+    condition: "filler1",
+    utterance: "The flower",
+    item: "red flower",
     image: "stimuli/trial_01.png",
-    greyCell: "bottomRight",
+    greyCell: "topRight",
     correctAnswer: "topLeft"
   },
 
@@ -17,25 +17,25 @@ const trials = [
     phase: "cg",
     block_id:1,
     trial_in_block:2,
-    condition: "filler1",
-    utterance: "The tree",
-    item: "tree",
+    condition: "baseline",
+    utterance: "The shoe",
+    item: "red shoe",
     image: "stimuli/trial_02.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topRight"
+    greyCell: "topRight",
+    correctAnswer: "bottomRight"
   },
-  
+
 {
     id: 3,
     phase: "cg",
     block_id:1,
     trial_in_block:3,
-    condition: "baseline",
-    utterance: "The dog",
-    item: "dog",
+    condition: "filler2color",
+    utterance: "The red apple",
+    item: "red apple",
     image: "stimuli/trial_03.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topLeft"
+    greyCell: "topRight",
+    correctAnswer: "bottomLeft"
   },
 
 {
@@ -44,11 +44,11 @@ const trials = [
     block_id:1,
     trial_in_block:4,
     condition: "filler1",
-    utterance: "The pen",
-    item: "green pen",
+    utterance: "The fish",
+    item: "orange fish",
     image: "stimuli/trial_04.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topRight"
+    greyCell: "topRight",
+    correctAnswer: "topLeft"
   },
 
 {
@@ -56,11 +56,11 @@ const trials = [
     phase: "cg",
     block_id:1,
     trial_in_block:5,
-    condition: "filler2size",
-    utterance: "The small umbrella",
-    item: "small red umbrella",
+    condition: "baseline",
+    utterance: "The house",
+    item: "house",
     image: "stimuli/trial_05.png",
-    greyCell: "bottomRight",
+    greyCell: "topRight",
     correctAnswer: "bottomLeft"
   },
 
@@ -69,11 +69,11 @@ const trials = [
     phase: "cg",
     block_id:2,
     trial_in_block:1,
-    condition: "filler1",
-    utterance: "The flower",
-    item: "red flower",
+    condition: "filler2color",
+    utterance: "The red chair",
+    item: "red chair",
     image: "stimuli/trial_06.png",
-    greyCell: "topRight",
+    greyCell: "bottomLeft",
     correctAnswer: "topLeft"
   },
 
@@ -82,25 +82,25 @@ const trials = [
     phase: "cg",
     block_id:2,
     trial_in_block:2,
-    condition: "baseline",
-    utterance: "The shoe",
-    item: "red shoe",
+    condition: "filler1",
+    utterance: "The tree",
+    item: "tree",
     image: "stimuli/trial_07.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomRight"
+    greyCell: "bottomLeft",
+    correctAnswer: "topRight"
   },
-
+  
 {
     id: 8,
     phase: "cg",
     block_id:2,
     trial_in_block:3,
-    condition: "filler2color",
-    utterance: "The red apple",
-    item: "red apple",
+    condition: "baseline",
+    utterance: "The dog",
+    item: "dog",
     image: "stimuli/trial_08.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomLeft"
+    greyCell: "bottomLeft",
+    correctAnswer: "topLeft"
   },
 
 {
@@ -109,11 +109,11 @@ const trials = [
     block_id:2,
     trial_in_block:4,
     condition: "filler1",
-    utterance: "The fish",
-    item: "orange fish",
+    utterance: "The pen",
+    item: "green pen",
     image: "stimuli/trial_09.png",
-    greyCell: "topRight",
-    correctAnswer: "topLeft"
+    greyCell: "bottomLeft",
+    correctAnswer: "topRight"
   },
 
 {
@@ -121,12 +121,12 @@ const trials = [
     phase: "cg",
     block_id:2,
     trial_in_block:5,
-    condition: "baseline",
-    utterance: "The house",
-    item: "house",
+    condition: "filler2size",
+    utterance: "The small umbrella",
+    item: "small red umbrella",
     image: "stimuli/trial_10.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomLeft"
+    greyCell: "bottomLeft",
+    correctAnswer: "bottomRight"
   },
 
 {
@@ -316,10 +316,10 @@ const trials = [
     phase: "susp",
     block_id:5,
     trial_in_block:5,
-    condition: "critical",
-    utterance: "The red shoe",
+    condition: "filler1",
+    utterance: "The shoe",
     item: "red shoe",
-    image: "stimuli/trial_25.png",
+    image: "stimuli/trial_25_2.png",
     greyCell: "bottomRight",
     correctAnswer: "topRight"
   },
@@ -449,7 +449,7 @@ const trials = [
     condition: "baseline",
     utterance: "The umbrella",
     item: "red umbrella",
-    image: "stimuli/trial_34.png",
+    image: "stimuli/trial_35.png",
     greyCell: "bottomRight",
     correctAnswer: "bottomLeft"
   }, 
@@ -462,7 +462,7 @@ const trials = [
     condition: "filler2size",
     utterance: "The big chair",
     item: "red chair",
-    image: "stimuli/trial_34.png",
+    image: "stimuli/trial_36.png",
     greyCell: "bottomRight",
     correctAnswer: "topRight"
   },
@@ -475,7 +475,7 @@ const trials = [
     condition: "filler1",
     utterance: "The flower",
     item: "red flower",
-    image: "stimuli/trial_34.png",
+    image: "stimuli/trial_37.png",
     greyCell: "bottomRight",
     correctAnswer: "bottomLeft"
   },
@@ -488,7 +488,7 @@ const trials = [
     condition: "baseline",
     utterance: "The apple",
     item: "red apple",
-    image: "stimuli/trial_34.png",
+    image: "stimuli/trial_38.png",
     greyCell: "bottomRight",
     correctAnswer: "topLeft"
   },
@@ -501,7 +501,7 @@ const trials = [
     condition: "critical",
     utterance: "The orange pen",
     item: "orange pen",
-    image: "stimuli/trial_34.png",
+    image: "stimuli/trial_39.png",
     greyCell: "bottomRight",
     correctAnswer: "bottomLeft"
   },
@@ -514,11 +514,22 @@ const trials = [
     condition: "filler2color",
     utterance: "The green car",
     item: "green car",
-    image: "stimuli/trial_34.png",
+    image: "stimuli/trial_40.png",
     greyCell: "bottomRight",
     correctAnswer: "topRight"
   }
 
 ];
 
-export default trials;
+function makeBlocks(trials) {
+  const blockIds = [...new Set(trials.map(trial => trial.block_id))];
+
+  return blockIds.map(blockId =>
+    trials.filter(trial => trial.block_id === blockId)
+  );
+}
+
+const trialBlocks = makeBlocks(trials);
+
+export { trials, trialBlocks };
+export default trialBlocks;

@@ -10,15 +10,46 @@
     </div>
 
     <div v-if="step === 'trial'">
-      <h2 class="utterance">{{ currentTrial.utterance }}</h2>
+      <div class="block-row">
+        <div
+          v-for="(trial, index) in practiceTrials"
+          :key="trial.id"
+          class="trial-slot"
+          :class="{ hidden: index > currentGrid }"
+        >
+          <h3 class="utterance">{{ trial.utterance }}</h3>
 
-      <div class="grid-wrapper">
-        <img :src="currentTrial.image" class="stimulus" />
+          <div class="grid-wrapper">
+            <img :src="trial.image" class="stimulus" />
 
-        <button class="cell top-left" @click="selectObject('topLeft')" />
-        <button class="cell top-right" @click="selectObject('topRight')" />
-        <button class="cell bottom-left" @click="selectObject('bottomLeft')" />
-        <button class="cell bottom-right" @click="selectObject('bottomRight')" />
+            <button
+              class="cell top-left"
+              :disabled="index !== currentGrid || hasResponse(index)"
+              @click="selectObject('topLeft')"
+            />
+            <button
+              class="cell top-right"
+              :disabled="index !== currentGrid || hasResponse(index)"
+              @click="selectObject('topRight')"
+            />
+            <button
+              class="cell bottom-left"
+              :disabled="index !== currentGrid || hasResponse(index)"
+              @click="selectObject('bottomLeft')"
+            />
+            <button
+              class="cell bottom-right"
+              :disabled="index !== currentGrid || hasResponse(index)"
+              @click="selectObject('bottomRight')"
+            />
+
+            <div
+              v-if="responses[index]"
+              class="selection-marker"
+              :class="responses[index].response"
+            />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -41,43 +72,84 @@ export default {
   data() {
     return {
       step: "intro",
-      trialIndex: 0
+      currentGrid: 0,
+      blockStartTime: null,
+      gridStartTime: null,
+      responses: []
     };
-  },
-  computed: {
-    currentTrial() {
-      return this.practiceTrials[this.trialIndex];
-    }
   },
   methods: {
     startPractice() {
-      this.trialIndex = 0;
+      this.currentGrid = 0;
+      this.responses = [];
       this.step = "trial";
+      this.blockStartTime = performance.now();
+      this.gridStartTime = performance.now();
+    },
+
+    hasResponse(index) {
+      return Boolean(this.responses[index]);
     },
 
     selectObject(cell) {
-      const correctAnswers = Array.isArray(this.currentTrial.correctAnswer)
-        ? this.currentTrial.correctAnswer
-        : [this.currentTrial.correctAnswer];
+      const now = performance.now();
+      const trial = this.practiceTrials[this.currentGrid];
+
+      const correctAnswers = Array.isArray(trial.correctAnswer)
+        ? trial.correctAnswer
+        : [trial.correctAnswer];
 
       const isCorrect = correctAnswers.includes(cell);
 
-      this.$magpie.addTrialData({
+      this.responses[this.currentGrid] = {
         trial_type: "practice_object_trial",
-        trial_id: this.currentTrial.id,
-        utterance: this.currentTrial.utterance,
-        grey_cell: this.currentTrial.greyCell,
+        trial_id: trial.id,
+        phase: trial.phase,
+        block_id: trial.block_id,
+        trial_in_block: trial.trial_in_block,
+        condition: trial.condition,
+        utterance: trial.utterance,
+        grey_cell: trial.greyCell,
         response: cell,
         correct_answer: correctAnswers.join(","),
-        correct: isCorrect
+        correct: isCorrect,
+        rt: now - this.gridStartTime
+      };
+
+      if (this.currentGrid < this.practiceTrials.length - 1) {
+        this.currentGrid += 1;
+        this.gridStartTime = performance.now();
+      } else {
+        this.finishPractice(now);
+      }
+    },
+
+    finishPractice(endTime) {
+      const blockRT = endTime - this.blockStartTime;
+
+      const trialData = {
+        trial_type: "practice_block",
+        phase: "practice",
+        block_id: 0,
+        block_rt: blockRT,
+        block_responses_json: JSON.stringify(this.responses)
+      };
+
+      this.responses.forEach((r, i) => {
+        const n = i + 1;
+        trialData[`practice_trial_id_${n}`] = r.trial_id;
+        trialData[`practice_trial_in_block_${n}`] = r.trial_in_block;
+        trialData[`practice_condition_${n}`] = r.condition;
+        trialData[`practice_utterance_${n}`] = r.utterance;
+        trialData[`practice_grey_cell_${n}`] = r.grey_cell;
+        trialData[`practice_response_${n}`] = r.response;
+        trialData[`practice_correct_answer_${n}`] = r.correct_answer;
+        trialData[`practice_correct_${n}`] = r.correct;
+        trialData[`practice_rt_${n}`] = r.rt;
       });
 
-      if (this.trialIndex < this.practiceTrials.length - 1) {
-        this.trialIndex += 1;
-        this.step = "trial";
-      } else {
-        this.step = "done";
-      }
+      this.$magpie.addTrialData(trialData);
+      this.step = "done";
     }
   }
 };
@@ -99,35 +171,49 @@ export default {
   margin: 20px auto;
 }
 
+.block-row {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.trial-slot {
+  width: 260px;
+}
+
+.trial-slot.hidden {
+  visibility: hidden;
+}
+
 .utterance {
   text-align: center;
-  margin-bottom: 30px;
+  font-size: 20px;
+  min-height: 45px;
+  margin-bottom: 8px;
 }
 
 .grid-wrapper {
   position: relative;
-  width: 500px;
-  margin: 30px auto;
+  width: 260px;
   line-height: 0;
 }
 
 .stimulus {
   width: 100%;
   display: block;
-  margin: 0;
-  padding: 0;
 }
 
 .cell {
   position: absolute;
-  background: rgba(0, 0, 0, 0);
-  border: 0;
+  background: transparent;
+  border: none;
   padding: 0;
   margin: 0;
-  color: transparent;
-  font-size: 0;
   appearance: none;
   -webkit-appearance: none;
+  opacity: 0;
   cursor: pointer;
 }
 
@@ -157,5 +243,35 @@ export default {
   left: 50%;
   width: 50%;
   height: 50%;
+}
+
+.selection-marker {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: black;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.selection-marker.topLeft {
+  top: 25%;
+  left: 25%;
+}
+
+.selection-marker.topRight {
+  top: 25%;
+  left: 75%;
+}
+
+.selection-marker.bottomLeft {
+  top: 75%;
+  left: 25%;
+}
+
+.selection-marker.bottomRight {
+  top: 75%;
+  left: 75%;
 }
 </style>

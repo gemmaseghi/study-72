@@ -6,9 +6,9 @@
     <PracticeBlock :practiceTrials="practiceTrials" />
 
     <GridTrial
-      v-for="trial in trials"
-      :key="trial.id"
-      :trial="trial"
+      v-for="block in trialBlocks"
+      :key="block[0].block_id"
+      :block="block"
     />
 
     <Questionnaire />
@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import _ from "lodash";
-import trials from "./trials";
+import trialBlocks from "./trials";
 import InstructionsWithBack from "./InstructionsWithBack.vue";
 import PracticeBlock from "./PracticeBlock.vue";
 import practiceTrials from "./PracticeTrials";
@@ -36,14 +35,16 @@ export default {
   },
   data() {
     return {
-      trials,
+      trialBlocks,
       practiceTrials
     };
-  },
-  computed: {
-    _() {
-      return _;
-    }
   }
 };
 </script>
+
+<style>
+.experiment {
+  width: 1500px !important;
+  max-width: 95vw !important;
+}
+</style>
