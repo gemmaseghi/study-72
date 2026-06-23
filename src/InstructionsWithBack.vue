@@ -31,56 +31,113 @@ export default {
       pages: [
         {
           title: "Consent Form",
-          text: `Thank you for your interest in our study. Please read the following information before deciding whether to participate. Your participation is entirely voluntary.
-          <br><br>
-          Your data will be stored under a randomly assigned participant ID and will therefore be fully anonymized. The data will be stored on a server at the University of Tübingen. 
-          <br><br>
-          All individuals with access to the data are required to maintain confidentiality. If the results of this study are published, they will be reported only in anonymized form, and it will not be possible to identify you from the published data.
-          <br><br>
-          You will receive £1.05 for your participation. Please note that compensation can only be provided if you complete the study. If you experience any technical issues, please contact us via Prolific.
-          <br><br>
-          By continuing to the next screen, you confirm that you have read this information and agree to participate in the study.`
+          text: `
+            <p>
+              Thank you for your interest in our study. Please read the following information before deciding whether to participate. Your participation is entirely voluntary.
+            </p>
+
+            <p>
+              Your data will be stored under a randomly assigned participant ID and will therefore be fully anonymized. The data will be stored on a server at the University of Tübingen.
+            </p>
+
+            <p>
+              All individuals with access to the data are required to maintain confidentiality. If the results of this study are published, they will be reported only in anonymized form, and it will not be possible to identify you from the published data.
+            </p>
+
+            <p>
+              You will receive £1.40 for your participation. Please note that compensation can only be provided if you complete the study. If you experience any technical issues, please contact us via Prolific.
+            </p>
+
+            <p>
+              By continuing to the next screen, you confirm that you have read this information and agree to participate in the study.
+            </p>
+          `
         },
         {
           title: "Welcome",
-          text: `Welcome to the experiment! You will first read a set of instructions. The instructions are divided into three parts. Please move to the next screen to read the first part.`
+          text: `
+            <p>
+              Welcome to the experiment! You will first read a set of instructions. The instructions are divided into three parts. Please move to the next screen to read the first part.
+            </p>
+          `
         },
         {
           title: "Instructions",
-          text: `In this experiment, you will play a game with another participant. You will play the role of the listener, while the other participant will play the role of the speaker. 
-          <br><br>
-          Each screen contains five grids, each with four objects and a description above it. At the start of each screen, only the leftmost grid will be visible. Select the object indicated by the description above the grid. Each correct selection will reveal the next grid to the right. After all five grids have been revealed, you will proceed to the next screen.
-          <br><br>
-          The description is produced by the speaker to indicate one of the objects in the grid. You will only be presented the speaker's description in written form, you won't hear it spoken aloud.`
+          text: `
+            <p>
+              In this experiment, you will play a coordination game with a virtual speaker named <strong>Sam</strong>.
+
+              Sam will choose one object among the four contained in a grid and describe it.
+            </p>
+
+            <p>
+              <strong>Sam's description will appear above the grid</strong>. You will only see the description in written form, you won't hear it spoken aloud.
+            </p>
+
+            <p>For example:</p>
+
+            <div class="instruction-figure">
+              <p class="image-caption">
+                The turtle
+              </p>
+
+              <img
+                src="instructions/instruction_01.png"
+                class="instruction-image"
+              />
+            </div>
+
+            <p>
+              <strong>Your task will be to select the object described by Sam by clicking on it</strong>. 
+            </p>
+          `
         },
         {
           title: "Instructions",
-          text: `The speaker sees a slightly different version of the grids. Their grids contain only three objects because one cell is hidden by an occluder. In your grid, the speaker's occluded cell is shown as a grey cell. This means that the speaker cannot see the object in the grey cell. 
-          <br><br>
-          If the grey cell changes position between screens, this means that a different cell is occluded from the speaker's view.
-          <br><br>
-          Apart from the hidden object, your grids and the speaker's ones contain the same objects. However, the position of the visible objects is shuffled across them, so the speaker cannot use location words (e.g., "top left" or "bottom right") to refer to an object.`
+          text: `
+            <p>
+              But Sam has a <strong>blind spot</strong>! You will always see four objects, but Sam only sees three. This is because <strong>one of Sam's cells is hidden by an occluder</strong>. But <strong>Sam doesn't know that he has a blindspot</strong>. He thinks that you see the same three objects and not the fourth one.
+            </p>
+
+            <p>
+              In your grid, Sam's occluded cell is shown as a grey cell. This means that <strong>Sam cannot see the object in the grey cell</strong>.
+            </p>
+
+            <p>
+              Apart from the hidden object, your grid and Sam's one contain the same objects. However, the position of the visible objects is shuffled across them, so Sam cannot use location words (e.g., "top left" or "bottom right") to refer to an object.
+            </p>
+
+            <p>
+              On Sam's screen, one of the visible objects is marked with an asterisk (*). His task is to describe that object.
+            </p>
+
+            <p>Sam's view is on the left and your view is on the right:</p>
+
+            <img
+              src="instructions/example_view.png"
+              class="example-image"
+            />
+          `
         },
         {
           title: "Instructions",
-          text: `On the speaker's screen, one of the visible objects is marked with an asterisk (*). Their task is to describe that object. 
-          <br><br>
-          Your task is to use their description, which will appear above the grid, to determine which object they intended to refer to and select it.
-          <br><br>
-          At the end of the experiment, you will be asked to complete a short questionnaire.`
-        },
-        {
-          title: "Example",
-          text: `<img src="instructions/example_view.png" style="width: 800px; max-width: 100%;" />
-          <p>
-            Example of the speaker's view (left) and your view (right).
-            The grey cell indicates the object that is hidden from the speaker.
-            The asterisk (*) marks the object that the speaker has to describe.
-          </p>
-          <p>
-            During the experiment, you will only see the right view. The speaker's view is shown here only to illustrate how the game works.
-            Your task is to click on the object that you think the speaker is referring to.
-          </p>`
+          text: `
+            <p>
+              In this task, each screen contains <strong>five grids</strong>. However, only the leftmost grid will be visible at first.
+            </p>
+
+            <p>
+              Read the description above the grid and click on the object that you think Sam is referring to. <strong>After each selection, the next grid will appear to the right, while the previous grids remain visible</strong>. Once you have selected an object in all five grids, you will automatically proceed to the next screen.
+            </p>
+
+            <p>
+              <strong>Within a screen, the grey cell always remains in the same position. Across screens, the grey cell may move to a different position</strong>. When this happens, it means that a different cell is hidden from Sam's view.
+            </p>
+
+            <p>
+              At the end of the experiment, you will be asked to complete a short questionnaire.
+            </p>
+          `
         }
       ]
     };
@@ -88,15 +145,30 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .instructions {
-  width: 600px;
+  width: 700px;
+  max-width: 95vw;
   margin: 0 auto;
   text-align: justify;
 }
 
 .instructions h2 {
   text-align: center;
+}
+
+.instructions p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+
+.example-image {
+  display: block;
+  margin: 24px auto;
+  max-width: 650px;
+  width: 100%;
 }
 
 .button-container {
@@ -109,5 +181,32 @@ export default {
 .button-container button {
   width: auto;
   margin: 0 5px;
+}
+
+.instruction-figure {
+  text-align: center;
+  margin: 8px 0;
+}
+
+.image-caption {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.instruction-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  width: auto;
+  height: auto;
+}
+
+.example-image {
+  display: block;
+  margin: 24px auto;
+  max-width: 650px;
+  width: auto;
+  height: auto;
 }
 </style>

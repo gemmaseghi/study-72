@@ -157,9 +157,11 @@ export default {
 
 <style scoped>
 .practice-instructions {
-  width: 600px;
+  width: 700px;
   margin: 0 auto;
   text-align: justify;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 .practice-instructions h2 {
