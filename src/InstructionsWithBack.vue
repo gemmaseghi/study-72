@@ -57,7 +57,7 @@ export default {
           title: "Welcome",
           text: `
             <p>
-              Welcome to the experiment! You will first read a set of instructions. The instructions are divided into three parts. Please move to the next screen to read the first part.
+              Welcome to the experiment! You will first read a set of instructions. It is important that you read them carefully. The instructions are divided into three parts. Please move to the next screen to read the first part.
             </p>
           `
         },
