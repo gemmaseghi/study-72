@@ -393,19 +393,6 @@ const trials = [
     id: 31,
     phase: "susp",
     block_id:7,
-    trial_in_block:1,
-    condition: "filler2size",
-    utterance: "The small book",
-    item: "green book",
-    image: "stimuli/trial_31.png",
-    greyCell: "bottomRight",
-    correctAnswer: "bottomLeft"
-  },
-
-{
-    id: 32,
-    phase: "susp",
-    block_id:7,
     trial_in_block:2,
     condition: "critical",
     utterance: "The yellow flower",
@@ -413,6 +400,19 @@ const trials = [
     image: "stimuli/trial_32.png",
     greyCell: "bottomRight",
     correctAnswer: "topLeft"
+  },
+
+{
+    id: 32,
+    phase: "susp",
+    block_id:7,
+    trial_in_block:1,
+    condition: "filler2size",
+    utterance: "The small book",
+    item: "green book",
+    image: "stimuli/trial_31.png",
+    greyCell: "bottomRight",
+    correctAnswer: "bottomLeft"
   },
 
 {
@@ -432,19 +432,6 @@ const trials = [
     id: 34,
     phase: "susp",
     block_id:7,
-    trial_in_block:4,
-    condition: "filler1",
-    utterance: "The duck",
-    item: "duck",
-    image: "stimuli/trial_34.png",
-    greyCell: "bottomRight",
-    correctAnswer: "bottomLeft"
-  },
-
-{
-    id: 35,
-    phase: "susp",
-    block_id:7,
     trial_in_block:5,
     condition: "critical",
     utterance: "The blue clock",
@@ -452,6 +439,19 @@ const trials = [
     image: "stimuli/trial_35.png",
     greyCell: "bottomRight",
     correctAnswer: "topLeft"
+  },
+
+{
+    id: 35,
+    phase: "susp",
+    block_id:7,
+    trial_in_block:4,
+    condition: "filler1",
+    utterance: "The duck",
+    item: "duck",
+    image: "stimuli/trial_34.png",
+    greyCell: "bottomRight",
+    correctAnswer: "bottomLeft"
   }, 
 
 {
