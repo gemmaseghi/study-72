@@ -397,7 +397,7 @@ const trials = [
     condition: "critical",
     utterance: "The yellow flower",
     item: "yellow flower",
-    image: "stimuli/trial_32.png",
+    image: "stimuli/trial_31.png",
     greyCell: "bottomRight",
     correctAnswer: "topLeft"
   },
@@ -410,7 +410,7 @@ const trials = [
     condition: "filler2size",
     utterance: "The small book",
     item: "green book",
-    image: "stimuli/trial_31.png",
+    image: "stimuli/trial_32.png",
     greyCell: "bottomRight",
     correctAnswer: "bottomLeft"
   },
@@ -436,7 +436,7 @@ const trials = [
     condition: "critical",
     utterance: "The blue clock",
     item: "blue clock",
-    image: "stimuli/trial_35.png",
+    image: "stimuli/trial_34.png",
     greyCell: "bottomRight",
     correctAnswer: "topLeft"
   },
@@ -449,7 +449,7 @@ const trials = [
     condition: "filler1",
     utterance: "The duck",
     item: "duck",
-    image: "stimuli/trial_34.png",
+    image: "stimuli/trial_35.png",
     greyCell: "bottomRight",
     correctAnswer: "bottomLeft"
   }, 
