@@ -252,8 +252,8 @@ export default {
 
 .selection-marker {
   position: absolute;
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: black;
   transform: translate(-50%, -50%);
@@ -261,8 +261,8 @@ export default {
 }
 
 .selection-marker.small {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
 }
 
 .selection-marker.topLeft {
