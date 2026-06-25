@@ -227,7 +227,7 @@ const trials = [
     trial_in_block:3,
     condition: "baseline",
     utterance: "The pen",
-    item: "greenpen",
+    item: "green pen",
     image: "stimuli/trial_18.png",
     greyCell: "bottomRight",
     correctAnswer: "topRight"
