@@ -4,7 +4,7 @@
       <h2>Practice</h2>
       <p>
         You will now complete a short practice round to understand how the task works.
-        Please select the object that you think the speaker is referring to.
+        Please select the object that you think Sam is referring to.
       </p>
       <button @click="startPractice">Start practice</button>
     </div>
