@@ -123,15 +123,19 @@ export default {
           title: "Instructions",
           text: `
             <p>
-              In this task, each screen contains <strong>five grids</strong>. However, only the leftmost grid will be visible at first.
+              In this task, each screen contains <strong>five grids</strong>. At the beginning of each screen, <strong>one large grid will be shown in the centre of the page</strong>. This is the only grid in which you need to select an object.
             </p>
 
             <p>
-              Read the description above the grid and click on the object that you think Sam is referring to. <strong>After each selection, the next grid will appear to the right, while the previous grids remain visible</strong>. Once you have selected an object in all five grids, you will automatically proceed to the next screen.
+              Read the description above the large grid and click on the object that you think Sam is referring to. <strong>After each selection, the completed grid will move to the top of the screen, where it will appear smaller and your selection will remain marked with a black dot.</strong> At the same time, the next grid will immediately appear in the large display in the centre of the page. <strong>The grids shown at the top are only there as a record of your previous selections, you do not need to click on them again.</strong>
             </p>
 
             <p>
-              <strong>Within a screen, the grey cell always remains in the same position. Across screens, the grey cell may move to a different position</strong>. When this happens, it means that a different cell is hidden from Sam's view.
+              Once you have selected an object in all five grids, you will automatically proceed to the next screen.
+            </p>
+
+            <p>
+              <strong>Within a screen, the grey cell always remains in the same position. Across screens, the grey cell may move to a different position.</strong> When this happens, it means that a different cell is hidden from Sam's view.
             </p>
 
             <p>

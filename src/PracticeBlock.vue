@@ -10,43 +10,47 @@
     </div>
 
     <div v-if="step === 'trial'">
-      <div class="block-row">
-        <div
-          v-for="(trial, index) in practiceTrials"
-          :key="trial.id"
-          class="trial-slot"
-          :class="{ hidden: index > currentGrid }"
-        >
-          <h3 class="utterance">{{ trial.utterance }}</h3>
+      <div class="block-layout">
+        <div class="history-row">
+          <div
+            v-for="(trial, index) in practiceTrials"
+            :key="trial.id"
+            class="history-slot"
+            :class="{ empty: !responses[index] }"
+          >
+            <template v-if="responses[index]">
+              <div class="history-utterance">{{ trial.utterance }}</div>
 
-          <div class="grid-wrapper">
-            <img :src="trial.image" class="stimulus" />
+              <div class="history-grid-wrapper">
+                <img :src="trial.image" class="history-stimulus" />
 
-            <button
-              class="cell top-left"
-              :disabled="index !== currentGrid || hasResponse(index)"
-              @click="selectObject('topLeft')"
-            />
-            <button
-              class="cell top-right"
-              :disabled="index !== currentGrid || hasResponse(index)"
-              @click="selectObject('topRight')"
-            />
-            <button
-              class="cell bottom-left"
-              :disabled="index !== currentGrid || hasResponse(index)"
-              @click="selectObject('bottomLeft')"
-            />
-            <button
-              class="cell bottom-right"
-              :disabled="index !== currentGrid || hasResponse(index)"
-              @click="selectObject('bottomRight')"
-            />
+                <div
+                  v-if="responses[index]"
+                  class="selection-marker small"
+                  :class="responses[index].response"
+                />
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div v-if="currentGrid < practiceTrials.length && !responses[currentGrid]" class="active-area">
+          <h3 class="active-utterance">
+            {{ practiceTrials[currentGrid].utterance }}
+          </h3>
+
+          <div class="active-grid-wrapper">
+            <img :src="practiceTrials[currentGrid].image" class="active-stimulus" />
+
+            <button class="cell top-left" @click="selectObject('topLeft')" />
+            <button class="cell top-right" @click="selectObject('topRight')" />
+            <button class="cell bottom-left" @click="selectObject('bottomLeft')" />
+            <button class="cell bottom-right" @click="selectObject('bottomRight')" />
 
             <div
-              v-if="responses[index]"
+              v-if="responses[currentGrid]"
               class="selection-marker"
-              :class="responses[index].response"
+              :class="responses[currentGrid].response"
             />
           </div>
         </div>
@@ -75,7 +79,8 @@ export default {
       currentGrid: 0,
       blockStartTime: null,
       gridStartTime: null,
-      responses: []
+      responses: [],
+      advanceDelay: 250
     };
   },
   methods: {
@@ -101,7 +106,7 @@ export default {
 
       const isCorrect = correctAnswers.includes(cell);
 
-      this.responses[this.currentGrid] = {
+      this.$set(this.responses, this.currentGrid, {
         trial_type: "practice_object_trial",
         trial_id: trial.id,
         phase: trial.phase,
@@ -114,13 +119,17 @@ export default {
         correct_answer: correctAnswers.join(","),
         correct: isCorrect,
         rt: now - this.gridStartTime
-      };
+      });
 
       if (this.currentGrid < this.practiceTrials.length - 1) {
         this.currentGrid += 1;
         this.gridStartTime = performance.now();
       } else {
-        this.finishPractice(now);
+        this.currentGrid += 1;
+
+        setTimeout(() => {
+          this.finishPractice(now);
+        }, this.advanceDelay);
       }
     },
 
@@ -173,36 +182,74 @@ export default {
   margin: 20px auto;
 }
 
-.block-row {
+.block-layout {
+  width: 100%;
+  min-height: 90vh;
   display: flex;
-  gap: 18px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.history-row {
+  width: 100%;
+  min-height: 150px;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
-.trial-slot {
-  width: 260px;
+.history-slot {
+  width: 170px;
+  min-height: 165px;
 }
 
-.trial-slot.hidden {
+.history-slot.empty {
   visibility: hidden;
 }
 
-.utterance {
+.history-utterance {
   text-align: center;
-  font-size: 20px;
-  min-height: 45px;
-  margin-bottom: 8px;
+  font-size: 13px;
+  min-height: 28px;
+  margin-bottom: 4px;
 }
 
-.grid-wrapper {
+.history-grid-wrapper {
   position: relative;
-  width: 260px;
+  width: 170px;
+  opacity: 0.85;
   line-height: 0;
 }
 
-.stimulus {
+
+.history-stimulus {
+  width: 100%;
+  display: block;
+}
+
+.active-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active-utterance {
+  text-align: center;
+  font-size: 26px;
+  min-height: 42px;
+  margin: 0 0 12px 0;
+}
+
+.active-grid-wrapper {
+  position: relative;
+  width: min(440px, 62vh);
+  line-height: 0;
+}
+
+.active-stimulus {
   width: 100%;
   display: block;
 }
@@ -249,12 +296,17 @@ export default {
 
 .selection-marker {
   position: absolute;
-  width: 13px;
-  height: 13px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   background: black;
   transform: translate(-50%, -50%);
   pointer-events: none;
+}
+
+.selection-marker.small {
+  width: 8px;
+  height: 8px;
 }
 
 .selection-marker.topLeft {

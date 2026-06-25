@@ -135,10 +135,10 @@ const trials = [
     block_id:3,
     trial_in_block:1,
     condition: "filler2size",
-    utterance: "The small cup",
+    utterance: "The big cup",
     item: "small bluecup",
     image: "stimuli/trial_11.png",
-    greyCell: "bottomLeft",
+    greyCell: "topLeft",
     correctAnswer: "topRight"
   },
 
@@ -151,8 +151,8 @@ const trials = [
     utterance: "The yellow flower",
     item: "yellow flower",
     image: "stimuli/trial_12.png",
-    greyCell: "bottomLeft",
-    correctAnswer: "topLeft"
+    greyCell: "topLeft",
+    correctAnswer: "bottomLeft"
   },
 
 {
@@ -164,7 +164,7 @@ const trials = [
     utterance: "The book",
     item: "green book",
     image: "stimuli/trial_13.png",
-    greyCell: "bottomLeft",
+    greyCell: "topLeft",
     correctAnswer: "bottomRight"
   },
 
@@ -177,7 +177,7 @@ const trials = [
     utterance: "The car",
     item: "red car",
     image: "stimuli/trial_14.png",
-    greyCell: "bottomLeft",
+    greyCell: "topLeft",
     correctAnswer: "topRight"
   },
 
@@ -190,8 +190,8 @@ const trials = [
     utterance: "The duck",
     item: "duck",
     image: "stimuli/trial_15.png",
-    greyCell: "bottomLeft",
-    correctAnswer: "topLeft"
+    greyCell: "topLeft",
+    correctAnswer: "bottomLeft"
   },
 
 {
@@ -203,7 +203,7 @@ const trials = [
     utterance: "The small cat",
     item: "small cat",
     image: "stimuli/trial_16.png",
-    greyCell: "topLeft",
+    greyCell: "bottomRight",
     correctAnswer: "topRight"
   },
 
@@ -216,8 +216,8 @@ const trials = [
     utterance: "The house",
     item: "house",
     image: "stimuli/trial_17.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomRight"
+    greyCell: "bottomRight",
+    correctAnswer: "topLeft"
   },
 
 {
@@ -229,8 +229,8 @@ const trials = [
     utterance: "The pen",
     item: "greenpen",
     image: "stimuli/trial_18.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomLeft"
+    greyCell: "bottomRight",
+    correctAnswer: "topRight"
   },
 
 {
@@ -242,8 +242,8 @@ const trials = [
     utterance: "The chair",
     item: "red chair",
     image: "stimuli/trial_19.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomRight"
+    greyCell: "bottomRight",
+    correctAnswer: "bottomLeft"
   },
 
 {
@@ -255,7 +255,7 @@ const trials = [
     utterance: "The car",
     item: "yellowcar",
     image: "stimuli/trial_20.png",
-    greyCell: "topLeft",
+    greyCell: "bottomRight",
     correctAnswer: "topRight"
   },
 
@@ -333,7 +333,7 @@ const trials = [
     utterance: "The pen",
     item: "green pen",
     image: "stimuli/trial_26.png",
-    greyCell: "bottomRight",
+    greyCell: "bottomLeft",
     correctAnswer: "topLeft"
   },
 
@@ -346,8 +346,8 @@ const trials = [
     utterance: "The orange fish",
     item: "orange fish",
     image: "stimuli/trial_27.png",
-    greyCell: "bottomRight",
-    correctAnswer: "bottomLeft"
+    greyCell: "bottomLeft",
+    correctAnswer: "bottomRight"
   },
 
 {
@@ -359,7 +359,7 @@ const trials = [
     utterance: "The blue umbrella",
     item: "blue umbrella",
     image: "stimuli/trial_28.png",
-    greyCell: "bottomRight",
+    greyCell: "bottomLeft",
     correctAnswer: "topLeft"
   },
 
@@ -372,8 +372,8 @@ const trials = [
     utterance: "The cat",
     item: "cat",
     image: "stimuli/trial_29.png",
-    greyCell: "bottomRight",
-    correctAnswer: "bottomLeft"
+    greyCell: "bottomLeft",
+    correctAnswer: "topRight"
   },
 
 {
@@ -385,7 +385,7 @@ const trials = [
     utterance: "The red shoe",
     item: "red shoe",
     image: "stimuli/trial_30.png",
-    greyCell: "bottomRight",
+    greyCell: "bottomLeft",
     correctAnswer: "topRight"
   },
 
@@ -463,7 +463,7 @@ const trials = [
     utterance: "The fish",
     item: "orange fish",
     image: "stimuli/trial_36.png",
-    greyCell: "bottomRight",
+    greyCell: "topLeft",
     correctAnswer: "topRight"
   },
 
@@ -476,7 +476,7 @@ const trials = [
     utterance: "The orange pen",
     item: "orange pen",
     image: "stimuli/trial_37.png",
-    greyCell: "bottomRight",
+    greyCell: "topLeft",
     correctAnswer: "bottomLeft"
   },
 
@@ -489,8 +489,8 @@ const trials = [
     utterance: "The big tree",
     item: "tree",
     image: "stimuli/trial_38.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topLeft"
+    greyCell: "topLeft",
+    correctAnswer: "bottomRight"
   },
 
 {
@@ -502,7 +502,7 @@ const trials = [
     utterance: "The blue book",
     item: "blue book",
     image: "stimuli/trial_39.png",
-    greyCell: "bottomRight",
+    greyCell: "topLeft",
     correctAnswer: "topRight"
   },
 
@@ -515,7 +515,7 @@ const trials = [
     utterance: "The umbrella",
     item: "red umbrella",
     image: "stimuli/trial_40.png",
-    greyCell: "bottomRight",
+    greyCell: "topLeft",
     correctAnswer: "bottomLeft"
   }
 
