@@ -131,7 +131,7 @@ export default {
             </p>
 
             <p>
-              Once you have selected an object in all five grids, <strong>the large grid in the centre of the screen will be replaced by a square with "Next" written in it</strong>. Click on it to proceed to the next screen.
+              Once you have selected an object in all five grids, <strong>the selection grid in the centre of the screen will be replaced by a square with "Next" written in it</strong>. Click on it to proceed to the next screen.
             </p>
 
             <p>
