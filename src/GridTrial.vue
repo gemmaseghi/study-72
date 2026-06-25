@@ -42,6 +42,12 @@
           />
         </div>
       </div>
+
+      <div v-if="currentGrid >= block.length" class="active-area">
+        <div class="next-square" @click="finishBlock()">
+          <span>Next</span>
+        </div>
+      </div>
     </div>
   </Screen>
 </template>
@@ -96,14 +102,11 @@ export default {
         this.gridStartTime = performance.now();
       } else {
         this.currentGrid += 1;
-
-        setTimeout(() => {
-          this.finishBlock(now);
-        }, this.advanceDelay);
       }
     },
 
-    finishBlock(endTime) {
+    finishBlock() {
+      const endTime = performance.now();
       const blockRT = endTime - this.blockStartTime;
       const blockID = this.block[0].block_id;
       const phase = this.block[0].phase;
@@ -281,4 +284,32 @@ export default {
   top: 75%;
   left: 75%;
 }
+
+.next-square {
+  width: min(380px, 54vh);
+  aspect-ratio: 1;
+
+  margin-top: 60px;
+
+  background: white;
+  border: 2px solid black;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: background-color 0.15s ease,
+              transform 0.08s ease;
+}
+
+.next-square span {
+  font-size: 56px;
+  font-weight: 600;
+  color: #2b6cff;
+}
+
 </style>
