@@ -149,7 +149,7 @@ export default {
 
 .history-row {
   width: 100%;
-  min-height: 150px;
+  height: 190px;          
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -159,7 +159,7 @@ export default {
 
 .history-slot {
   width: 170px;
-  min-height: 165px;
+  height: 185px;         
 }
 
 .history-slot.empty {
@@ -169,13 +169,14 @@ export default {
 .history-utterance {
   text-align: center;
   font-size: 13px;
-  min-height: 28px;
+  height: 28px;           
   margin-bottom: 4px;
 }
 
 .history-grid-wrapper {
   position: relative;
   width: 170px;
+  height: 170px;         
   opacity: 0.85;
   line-height: 0;
 }
@@ -186,7 +187,7 @@ export default {
 }
 
 .active-area {
-  flex: 1;
+  height: 520px;          
   display: flex;
   flex-direction: column;
   align-items: center;
