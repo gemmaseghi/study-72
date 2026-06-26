@@ -10,7 +10,7 @@
     </div>
 
     <div v-if="step === 'trial'">
-      <div class="block-layout">
+      <div v-if="imagesReady" class="block-layout">
         <div class="history-row">
           <div
             v-for="(trial, index) in practiceTrials"
@@ -55,6 +55,7 @@
           </div>
         </div>
       </div>
+      <div v-else class="preload-placeholder"></div>
     </div>
 
     <div v-if="step === 'done'" class="practice-instructions">
@@ -80,16 +81,41 @@ export default {
       blockStartTime: null,
       gridStartTime: null,
       responses: [],
-      advanceDelay: 250
+      advanceDelay: 250,
+      imagesReady: false
     };
   },
   methods: {
     startPractice() {
       this.currentGrid = 0;
       this.responses = [];
+      this.imagesReady = false;
       this.step = "trial";
-      this.blockStartTime = performance.now();
-      this.gridStartTime = performance.now();
+
+      this.preloadPracticeImages().then(() => {
+        this.imagesReady = true;
+
+        this.$nextTick(() => {
+          requestAnimationFrame(() => {
+            this.blockStartTime = performance.now();
+            this.gridStartTime = performance.now();
+          });
+        });
+      });
+    },
+
+    preloadPracticeImages() {
+      const imagePaths = this.practiceTrials.map(trial => trial.image);
+
+      const preloadOne = src =>
+        new Promise(resolve => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = src;
+        });
+
+      return Promise.all(imagePaths.map(preloadOne));
     },
 
     hasResponse(index) {
@@ -123,7 +149,12 @@ export default {
 
       if (this.currentGrid < this.practiceTrials.length - 1) {
         this.currentGrid += 1;
-        this.gridStartTime = performance.now();
+
+        this.$nextTick(() => {
+          requestAnimationFrame(() => {
+            this.gridStartTime = performance.now();
+          });
+        });
       } else {
         this.currentGrid += 1;
 
@@ -328,4 +359,10 @@ export default {
   top: 75%;
   left: 75%;
 }
+
+.preload-placeholder {
+  width: 100%;
+  min-height: 90vh;
+}
+
 </style>

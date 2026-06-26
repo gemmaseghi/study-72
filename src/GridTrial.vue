@@ -1,6 +1,6 @@
 <template>
   <Screen>
-    <div class="block-layout">
+    <div v-if="imagesReady" class="block-layout">
       <div class="history-row">
         <div
           v-for="(trial, index) in block"
@@ -49,6 +49,8 @@
         </div>
       </div>
     </div>
+
+    <div v-else class="preload-placeholder"></div>
   </Screen>
 </template>
 
@@ -67,16 +69,38 @@ export default {
       blockStartTime: null,
       gridStartTime: null,
       responses: [],
-      advanceDelay: 250
+      imagesReady: false
     };
   },
   mounted() {
-    this.blockStartTime = performance.now();
-    this.gridStartTime = performance.now();
+    this.preloadBlockImages().then(() => {
+      this.imagesReady = true;
+
+      this.$nextTick(() => {
+        requestAnimationFrame(() => {
+          this.blockStartTime = performance.now();
+          this.gridStartTime = performance.now();
+        });
+      });
+    });
   },
   methods: {
     hasResponse(index) {
       return Boolean(this.responses[index]);
+    },
+
+    preloadBlockImages() {
+      const imagePaths = this.block.map(trial => trial.image);
+
+      const preloadOne = src =>
+        new Promise(resolve => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = src;
+        });
+
+      return Promise.all(imagePaths.map(preloadOne));
     },
 
     selectCell(answer) {
@@ -99,7 +123,12 @@ export default {
 
       if (this.currentGrid < this.block.length - 1) {
         this.currentGrid += 1;
-        this.gridStartTime = performance.now();
+
+        this.$nextTick(() => {
+            requestAnimationFrame(() => {
+                this.gridStartTime = performance.now();
+            });
+        });
       } else {
         this.currentGrid += 1;
       }
@@ -311,6 +340,11 @@ export default {
   font-size: 56px;
   font-weight: 600;
   color: #2b6cff;
+}
+
+.preload-placeholder {
+  width: 100%;
+  min-height: 90vh;
 }
 
 </style>
